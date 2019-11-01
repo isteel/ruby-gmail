@@ -47,6 +47,7 @@ class Gmail
     def delete!
       @mailbox.messages.delete(uid)
       flag(:Deleted)
+      @gmail.imap.expunge
     end
 
     def label(name)
